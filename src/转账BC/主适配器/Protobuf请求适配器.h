@@ -43,7 +43,7 @@ public:
     }
     int 请求命令(std::string 请求参数){
         int 单号;
-        std::function<void(处理结果&)> 回调函数=[=](处理结果& 处理结果_) mutable{
+        std::function<void(处理结果&)> 回调函数=[&](处理结果& 处理结果_) mutable{
             if(处理结果_.异常_==nullptr){
                 单号=boost::any_cast<int>(处理结果_.返回值);
             }
