@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.17)
-project(transfer)
+project(DDD_Demo_For_C++)
 # Download and unpack googletest at configure time
 configure_file(CMakeLists.txt.in googletest-download/CMakeLists.txt)
 execute_process(COMMAND ${CMAKE_COMMAND} -G "${CMAKE_GENERATOR}" .
