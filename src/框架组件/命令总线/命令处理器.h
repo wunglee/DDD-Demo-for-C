@@ -1,7 +1,3 @@
-//
-// Created by 王立 on 2021/5/15.
-//
-
 #ifndef TRANSFER_命令处理器_H
 #define TRANSFER_命令处理器_H
 #include "处理结果.h"
