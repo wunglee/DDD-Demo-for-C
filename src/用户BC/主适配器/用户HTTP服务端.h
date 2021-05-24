@@ -12,22 +12,25 @@
  */
 class 用户HTTP服务端{
 private:
-    用户服务接口 * 用户服务接口_=用户服务工厂::获取单例();
+    用户服务接口 * 用户服务接口_;
     static 用户HTTP服务端 *用户HTTP服务端_;
-    用户HTTP服务端() {}
 public:
+    用户HTTP服务端(用户服务接口 *用户服务接口_) : 用户服务接口_(用户服务接口_) {}
     ~用户HTTP服务端(){
         用户服务工厂::销毁单例();
         用户HTTP服务端_= nullptr;
     }
-    static 用户HTTP服务端 *构建单例() {
+    static 用户HTTP服务端 *构建单例(用户服务接口 *用户服务接口_) {
         if (用户HTTP服务端::用户HTTP服务端_ == nullptr) {
-            用户HTTP服务端::用户HTTP服务端_ = new 用户HTTP服务端();
+            用户HTTP服务端::用户HTTP服务端_ = new 用户HTTP服务端(用户服务接口_);
         }
         return 用户HTTP服务端::用户HTTP服务端_;
     }
     static 用户HTTP服务端 *获取单例() {
-        return 构建单例();
+        if(用户HTTP服务端::用户HTTP服务端_== nullptr){
+            throw "实例未创建";
+        }
+        return 用户HTTP服务端::用户HTTP服务端_;
     }
     static void 销毁单例(){
         if(用户HTTP服务端::用户HTTP服务端_!= nullptr)
