@@ -1,35 +1,35 @@
-#ifndef TRANSFER_命令_H
-#define TRANSFER_命令_H
+#ifndef TRANSFER_请求_H
+#define TRANSFER_请求_H
 #include "boost/any.hpp"
 #include "处理结果.h"
-class 命令 {
+class 请求 {
 private:
-    std::string 命令ID;
-    std::string 命令处理器名称;
+    std::string 请求ID;
+    std::string 请求处理器名称;
     std::string 方法名;
     boost::any 参数;
     std::list <std::string> 拦截器配置;
     std::function<void(处理结果& 处理结果_)> 回调方法;
 public:
-    命令(const std::string 命令Id,
-       const std::string 命令处理器名称,
+    请求(const std::string 请求Id,
+       const std::string 请求处理器名称,
        const std::string 方法名,
        const boost::any &参数,
        const std::function<void(处理结果 &)> &回调方法,
        const std::list<std::string> &拦截器配置={}) :
-       命令ID(命令Id),
-       命令处理器名称(命令处理器名称),
+       请求ID(请求Id),
+       请求处理器名称(请求处理器名称),
        方法名(方法名),
        参数(参数),
        拦截器配置(拦截器配置),
        回调方法(回调方法) {}
 
-    const std::string 获取命令Id() const {
-        return 命令ID;
+    const std::string 获取请求Id() const {
+        return 请求ID;
     }
 
-    const std::string 获取命令处理器名称() const {
-        return 命令处理器名称;
+    const std::string 获取请求处理器名称() const {
+        return 请求处理器名称;
     }
 
     const std::string 获取方法名() const {
@@ -48,4 +48,4 @@ public:
         return 回调方法;
     }
 };
-#endif //TRANSFER_命令_H
+#endif //TRANSFER_请求_H

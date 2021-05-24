@@ -39,7 +39,7 @@ public:
             }
         }
     }
-    void 幂等处理(std::string 事件名,long 命令ID){
+    void 幂等处理(std::string 事件名,long 请求ID){
     }
     void 清空注册表(){
         监听器注册表_.clear();

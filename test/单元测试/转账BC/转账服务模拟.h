@@ -4,16 +4,21 @@
 class 转账服务模拟: public 转账服务接口{
 private:
     转账服务模拟(){}
-    static 转账服务模拟* 转账命令服务_;
+    static 转账服务模拟* 转账请求服务_;
 public:
     ~转账服务模拟() {
-        转账服务模拟::转账命令服务_= nullptr;
+        转账服务模拟::转账请求服务_= nullptr;
     }
     static 转账服务模拟* 获取单例(){
-        if (转账命令服务_ == nullptr) {
-            转账命令服务_ = new 转账服务模拟();
+        if (转账请求服务_ == nullptr) {
+            转账请求服务_ = new 转账服务模拟();
         }
-        return 转账命令服务_;
+        return 转账请求服务_;
+    }
+    static void 销毁单例(){
+        if (转账请求服务_ != nullptr) {
+            delete 转账请求服务_;
+        }
     }
     bool 申请转账已调用=false;
     bool 通知退款已调用=false;

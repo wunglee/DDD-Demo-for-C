@@ -1,0 +1,12 @@
+#ifndef TRANSFER_请求处理器_H
+#define TRANSFER_请求处理器_H
+#include "处理结果.h"
+#include "boost/any.hpp"
+class 请求处理器 {
+public:
+    virtual ~请求处理器(){
+    }
+    virtual 处理结果 处理(std::string 方法名,const boost::any &方法参数)=0;
+};
+
+#endif //TRANSFER_请求处理器_H
