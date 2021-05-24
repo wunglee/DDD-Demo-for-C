@@ -2,7 +2,7 @@
 #define TRANSFER_应用服务测试环境_H
 #include "用户查询模拟.h"
 #include "用户仓储模拟.h"
-#include "../../../src/用户BC/应用层/用户服务接口.h"
+#include "../../../src/全局配置/服务接口/用户服务接口.h"
 #include "../../../src/用户BC/应用层/用户服务.h"
 class 应用服务测试环境 : public ::testing::Test {
 public:

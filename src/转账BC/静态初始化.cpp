@@ -5,7 +5,7 @@
 #include "从适配器/转账DAO.h"
 #include "主适配器/Protobuf请求适配器.h"
 #include "主适配器/转账命令处理器.h"
-
+#include "转帐服务工厂.h"
 转账服务 * 转账服务::转账服务_= nullptr;
 转账查询 * 转账查询::转账查询_= nullptr;
 转账事件处理器 * 转账事件处理器::转账事件处理器_= nullptr;
@@ -13,3 +13,5 @@
 转账DAO * 转账DAO::转账DAO_= nullptr;
 Protobuf请求适配器 * Protobuf请求适配器::PB请求适配器_= nullptr;
 转账命令处理器* 转账命令处理器::转账命令处理器_= nullptr;
+用户服务接口* 转帐服务工厂::用户服务接口_= nullptr;
+用户HTTP客户端* 用户HTTP客户端::用户HTTP客户端_= nullptr;

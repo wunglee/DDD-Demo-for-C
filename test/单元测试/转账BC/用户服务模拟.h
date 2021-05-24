@@ -1,6 +1,6 @@
 #ifndef TRANSFER_用户服务模拟_H
 #define TRANSFER_用户服务模拟_H
-#include "../../../src/用户BC/应用层/用户服务接口.h"
+#include "../../../src/全局配置/服务接口/用户服务接口.h"
 
 class 用户服务模拟: public 用户服务接口{
 private:
@@ -11,14 +11,14 @@ public:
         用户服务模拟::用户服务模拟_= nullptr;
         冻结状态集合_.clear();
     }
-    static 用户服务模拟* 获取单例(){
+    static 用户服务模拟* 构造单例(){
         if (用户服务模拟_ == nullptr) {
             用户服务模拟_ = new 用户服务模拟();
         }
         return 用户服务模拟_;
     }
-    static 用户服务模拟* 获取已存在的单例(){
-        return 用户服务模拟_;
+    static 用户服务模拟* 获取单例(){
+        return 构造单例();
     }
     virtual void 添加用户(std::string 账号) override {
         if(冻结状态集合_.find(账号) == 冻结状态集合_.end())

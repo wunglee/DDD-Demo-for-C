@@ -9,9 +9,9 @@ public:
     转账DAO模拟 * 转账DAO模拟_= nullptr;
     用户服务接口 * 用户服务接口_= nullptr;
     virtual void SetUp() {
-        用户服务接口_=用户服务模拟::获取单例();
+        用户服务接口_= 用户服务模拟::构造单例();
         转账DAO模拟_=转账DAO模拟::获取单例();
-        转账仓储::构建单例(用户服务接口_, 转账DAO模拟_);
+        转账仓储::构建单例(转账DAO模拟_,用户服务接口_);
     }
     virtual void TearDown() {
         delete 用户服务接口_;

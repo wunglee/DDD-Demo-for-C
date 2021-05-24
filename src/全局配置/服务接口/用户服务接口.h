@@ -2,7 +2,7 @@
 #define TRANSFER_用户服务接口_H
 
 #include <boost/optional.hpp>
-#include "../领域层/用户.h"
+#include "../../用户BC/领域层/用户.h"
 
 class 用户服务接口 {
 public:

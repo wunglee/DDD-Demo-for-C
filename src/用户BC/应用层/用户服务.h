@@ -3,7 +3,7 @@
 #include "../领域层/用户.h"
 #include "../../资金帐户BC/应用层/资金帐户服务.h"
 #include "../../框架组件/命名服务/命名服务管理器.h"
-#include "用户服务接口.h"
+#include "../../全局配置/服务接口/用户服务接口.h"
 #include "用户仓储接口.h"
 #include "用户查询接口.h"
 class 用户服务 : public 用户服务接口{
