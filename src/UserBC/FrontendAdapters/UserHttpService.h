@@ -43,7 +43,7 @@ public:
         if(UserHttpService::用户HTTP服务端_ != nullptr)
             delete UserHttpService::用户HTTP服务端_;
     }
-    HttpResponse 获取用户(HttpRequest 请求)  {
+    HttpResponse 获取用户(HttpRequest &请求)  {
         boost::optional<User> 用户_;
         /**
          * TODO:异步回调这个回调函数,并采用NOI返回给客户端
@@ -63,7 +63,7 @@ public:
         return httpResponse;
     }
 
-    HttpResponse 是否已冻结(HttpRequest 请求){
+    HttpResponse 是否已冻结(HttpRequest &请求){
         bool 是否冻结;
         /**
         * TODO:异步回调这个回调函数
@@ -83,7 +83,7 @@ public:
         return httpResponse;
     }
 
-    HttpResponse 添加用户(HttpRequest 请求) {
+    HttpResponse 添加用户(HttpRequest &请求) {
         Require 创建用户请求_= Require("1",
                                  "UserRequireMapping",
                                  "创建用户",
@@ -93,7 +93,7 @@ public:
         return HttpResponse();
     }
 
-    HttpResponse 冻结用户(HttpRequest 请求) {
+    HttpResponse 冻结用户(HttpRequest &请求) {
         Require 冻结用户请求_= Require("1",
                                  "UserRequireMapping",
                                  "冻结用户",
@@ -103,7 +103,7 @@ public:
         return HttpResponse();
     }
 
-    HttpResponse 解冻用户(HttpRequest 请求) {
+    HttpResponse 解冻用户(HttpRequest &请求) {
         Require 解冻用户请求_= Require("1",
                                  "UserRequireMapping",
                                  "解冻用户",
