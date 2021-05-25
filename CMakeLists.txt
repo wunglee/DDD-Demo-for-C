@@ -28,7 +28,7 @@ add_subdirectory(${CMAKE_CURRENT_BINARY_DIR}/googletest-src
         ${CMAKE_CURRENT_BINARY_DIR}/googletest-build
         EXCLUDE_FROM_ALL)
 add_library(staticInit_request src/框架组件/请求拦截/静态初始化.cpp)
-add_library(staticInit_event src/框架组件/事件总线/事件发布订阅服务.cpp)
+add_library(staticInit_event src/框架组件/事件发布订阅/事件发布订阅服务.cpp)
 add_library(staticInit_sington src/框架组件/命名服务/静态初始化.cpp)
 add_executable(infrastructureTest test/框架测试/基础框架测试.cpp)
 

@@ -2,7 +2,7 @@
 #define TRANSFER_事件总线测试环境_H
 #include "gtest/gtest.h"
 #include "事件监听器模拟.h"
-#include "../../src/框架组件/事件总线/事件发布订阅服务.h"
+#include "../../src/框架组件/事件发布订阅/事件发布订阅服务.h"
 #include "../../src/框架组件/命名服务/命名服务管理器.h"
 
 class 事件总线测试环境 : public ::testing::Test {

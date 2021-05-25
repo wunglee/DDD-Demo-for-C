@@ -1,6 +1,6 @@
 #ifndef TRANSFER_用户事件处理器_H
 #define TRANSFER_用户事件处理器_H
-#include "../../框架组件/事件总线/事件监听器.h"
+#include "../../框架组件/事件发布订阅/事件监听器.h"
 //从事件队列中取出事件进行处理
 class 用户事件处理器 : public 事件监听器 {
 private:

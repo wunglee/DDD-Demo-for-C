@@ -1,6 +1,6 @@
 #ifndef TRANSFER_事件监听器模拟_H
 #define TRANSFER_事件监听器模拟_H
-#include "../../src/框架组件/事件总线/事件监听器.h"
+#include "../../src/框架组件/事件发布订阅/事件监听器.h"
 
 class 事件监听器模拟 : public 事件监听器{
 private:

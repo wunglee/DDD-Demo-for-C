@@ -1,7 +1,7 @@
 #ifndef TRANSFER_资金帐户服务_H
 #define TRANSFER_资金帐户服务_H
 
-#include "../../框架组件/事件总线/事件发布订阅服务.h"
+#include "../../框架组件/事件发布订阅/事件发布订阅服务.h"
 #include "../../框架组件/命名服务/命名服务管理器.h"
 #include "资金帐户服务接口.h"
 #include "资金帐户仓储接口.h"
