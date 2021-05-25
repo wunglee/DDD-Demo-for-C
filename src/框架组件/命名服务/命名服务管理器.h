@@ -3,7 +3,9 @@
 
 #include <boost/any.hpp>
 #include <boost/optional.hpp>
-
+/**
+ * TODO:这是对服务注册与发现的简单模拟，真实环境会被替换掉
+ */
 class 命名服务管理器{
 private:
     命名服务管理器(){}
