@@ -4,7 +4,7 @@
 
 #ifndef TRANSFER_转账仓储模拟_H
 #define TRANSFER_转账仓储模拟_H
-#include "../../../src/全局配置/服务接口/用户服务接口.h"
+#include "../../../src/全局业务依赖/服务接口/用户服务接口.h"
 #include "../../../src/转账BC/应用层/转账仓储接口.h"
 #include "../../../src/转账BC/领域层/转账.h"
 #include "../../../src/转账BC/领域层/转账用户.h"

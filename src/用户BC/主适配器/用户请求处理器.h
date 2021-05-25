@@ -3,7 +3,7 @@
 #include "../../../src/框架组件/请求拦截/请求处理器.h"
 #include "../../../src/框架组件/请求拦截/处理结果.h"
 #include "../../../src/框架组件/命名服务/命名服务管理器.h"
-#include "../../../src/全局配置/服务接口/用户服务接口.h"
+#include "../../../src/全局业务依赖/服务接口/用户服务接口.h"
 #include "boost/any.hpp"
 #include "用户DTO.h"
 class 用户请求处理器 :public 请求处理器{

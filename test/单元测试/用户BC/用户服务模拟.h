@@ -1,6 +1,6 @@
 #ifndef TRANSFER_用户服务模拟_H
 #define TRANSFER_用户服务模拟_H
-#include "../../../src/全局配置/服务接口/用户服务接口.h"
+#include "../../../src/全局业务依赖/服务接口/用户服务接口.h"
 
 class 用户服务模拟: public 用户服务接口{
 private:
