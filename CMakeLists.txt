@@ -27,24 +27,24 @@ link_directories(/usr/local/lib)
 add_subdirectory(${CMAKE_CURRENT_BINARY_DIR}/googletest-src
         ${CMAKE_CURRENT_BINARY_DIR}/googletest-build
         EXCLUDE_FROM_ALL)
-add_library(staticInit_request src/框架组件/本地请求拦截/静态初始化.cpp)
-add_library(staticInit_event src/框架组件/事件发布订阅/事件发布订阅服务.cpp)
-add_library(staticInit_sington src/框架组件/命名服务/静态初始化.cpp)
-add_executable(infrastructureTest test/框架测试/基础框架测试.cpp)
+add_library(staticInit_request src/FrameworkComponents/LocalRequestionFilters/StaticInit.cpp)
+add_library(staticInit_event src/FrameworkComponents/DomainEvent/PublishSubscribeService.cpp)
+add_library(staticInit_sington src/FrameworkComponents/NamingService/StaticInit.cpp)
+add_executable(infrastructureTest test/FrameworkTest/FrameworkTest.cpp)
 
-add_library(staticInit_user src/用户BC/静态初始化.cpp)
-add_library(staticInit_userUnitTest test/单元测试/用户BC/静态初始化.cpp)
-add_executable(userUnitTest test/单元测试/用户BC/单元测试.cpp)
+add_library(staticInit_user src/UserBC/StaticInit.cpp)
+add_library(staticInit_userUnitTest test/UnitTest/UserBC/StaticInit.cpp)
+add_executable(userUnitTest test/UnitTest/UserBC/UserUnitTest.cpp)
 
-add_library(staticInit_fund src/资金帐户BC/静态初始化.cpp)
-add_library(staticInit_fundUnitTest test/单元测试/资金帐户BC/静态初始化.cpp)
-add_executable(fundUnitTest test/单元测试/资金帐户BC/单元测试.cpp)
+add_library(staticInit_fund src/FundBC/StaticInit.cpp)
+add_library(staticInit_fundUnitTest test/UnitTest/FundBC/StaticInit.cpp)
+add_executable(fundUnitTest test/UnitTest/FundBC/FundUnitTest.cpp)
 
-add_library(staticInit_transfer src/转账BC/静态初始化.cpp)
-add_library(staticInit_transferUnitTest test/单元测试/转账BC/静态初始化.cpp)
-add_executable(tansferUnitTest test/单元测试/转账BC/单元测试.cpp)
+add_library(staticInit_transfer src/TransferBC/StaticInit.cpp)
+add_library(staticInit_transferUnitTest test/UnitTest/TransferBC/StaticInit.cpp)
+add_executable(tansferUnitTest test/UnitTest/TransferBC/TransferUnitTest.cpp)
 
-add_executable(tansferFlowTest test/集成测试/转账流程测试.cpp)
+add_executable(tansferFlowTest test/IntegrationTest/RequireFlowTest.cpp)
 
 target_link_libraries(infrastructureTest
         gtest_main
