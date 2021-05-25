@@ -31,6 +31,7 @@ public:
             delete 资金事件处理器::资金事件处理器_;
         }
     }
+    //TODO:还需要重构，并且不应该直接调用应用服务，应该转发给请求拦截器进一步处理
     std::map<std::string,std::function<void(领域事件)>> 事件处理映射表;
     void 处理(const 领域事件 领域事件_){
         boost::any 事件内容;
