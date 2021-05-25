@@ -5,10 +5,10 @@
 #ifndef DDD_DEMO_FOR_C_请求处理配置器_H
 #define DDD_DEMO_FOR_C_请求处理配置器_H
 #include "../命名服务/命名服务管理器.h"
-#include "../请求拦截/请求处理配置器.h"
-#include "../请求拦截/请求队列池接口.h"
-#include "../请求拦截/请求处理器管理器.h"
-#include "../请求拦截/请求接收器.h"
+#include "../本地请求拦截/请求处理配置器.h"
+#include "../本地请求拦截/请求队列池接口.h"
+#include "../本地请求拦截/请求处理器管理器.h"
+#include "../本地请求拦截/请求接收器.h"
 #include "请求处理器.h"
 #include "请求队列池.h"
 class 请求处理配置器 {

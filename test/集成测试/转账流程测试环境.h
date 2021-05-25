@@ -9,7 +9,7 @@
 #include "../../src/转账BC/转帐服务工厂.h"
 #include "../单元测试/用户BC/用户服务模拟.h"
 #include "../../src/全局业务依赖/事件监听器配置.h"
-#include "../../src/框架组件/请求拦截/请求处理配置器.h"
+#include "../../src/框架组件/本地请求拦截/请求处理配置器.h"
 #include "../../src/转账BC/从适配器/用户HTTP客户端.h"
 #include "../公共测试方法.h"
 

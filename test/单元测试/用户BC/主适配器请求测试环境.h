@@ -2,7 +2,7 @@
 #define TRANSFER_主适配器请求测试环境_H
 #include "gtest/gtest.h"
 #include "../../../src/用户BC/主适配器/用户请求处理器.h"
-#include "../../../src/框架组件/请求拦截/请求处理配置器.h"
+#include "../../../src/框架组件/本地请求拦截/请求处理配置器.h"
 #include "用户服务模拟.h"
 #include "../../../src/用户BC/主适配器/用户HTTP服务端.h"
 class 主适配器请求测试环境 : public ::testing::Test {

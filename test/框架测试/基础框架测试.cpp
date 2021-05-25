@@ -2,7 +2,7 @@
 #include "事件总线测试环境.h"
 #include "../../src/资金帐户BC/从适配器/资金帐户DAO.h"
 #include "../../src/用户BC/从适配器/用户DAO.h"
-#include "../../src/框架组件/请求拦截/请求接收器.h"
+#include "../../src/框架组件/本地请求拦截/请求接收器.h"
 #include "请求总线测试环境1.h"
 #include "请求总线测试环境2.h"
 

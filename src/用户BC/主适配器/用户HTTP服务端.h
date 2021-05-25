@@ -6,9 +6,9 @@
 #define DDD_DEMO_FOR_C_用户服务端_H
 #include "../应用层/用户服务.h"
 #include "../用户服务工厂.h"
-#include "../../../src/框架组件/请求拦截/处理结果.h"
-#include "../../../src/框架组件/请求拦截/请求.h"
-#include "../../../src/框架组件/请求拦截/请求接收器.h"
+#include "../../../src/框架组件/本地请求拦截/处理结果.h"
+#include "../../../src/框架组件/本地请求拦截/请求.h"
+#include "../../../src/框架组件/本地请求拦截/请求接收器.h"
 #include "../../../src/框架组件/命名服务/命名服务管理器.h"
 #include "用户DTO.h"
 /**

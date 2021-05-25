@@ -1,8 +1,8 @@
 #ifndef TRANSFER_PROTOBUF请求适配器_H
 #define TRANSFER_PROTOBUF请求适配器_H
-#include "../../../src/框架组件/请求拦截/处理结果.h"
-#include "../../../src/框架组件/请求拦截/请求.h"
-#include "../../../src/框架组件/请求拦截/请求接收器.h"
+#include "../../../src/框架组件/本地请求拦截/处理结果.h"
+#include "../../../src/框架组件/本地请求拦截/请求.h"
+#include "../../../src/框架组件/本地请求拦截/请求接收器.h"
 #include "../../../src/框架组件/命名服务/命名服务管理器.h"
 #include "转账DTO.h"
 /**

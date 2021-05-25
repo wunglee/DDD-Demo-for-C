@@ -1,6 +1,6 @@
 #ifndef TRANSFER_请求拦截器模拟2_H
 #define TRANSFER_请求拦截器模拟2_H
-#include "../../src/框架组件/请求拦截/请求拦截器.h"
+#include "../../src/框架组件/本地请求拦截/请求拦截器.h"
 class 请求拦截器模拟2: public 请求拦截器{
 public:
     bool 执行前调用=false;

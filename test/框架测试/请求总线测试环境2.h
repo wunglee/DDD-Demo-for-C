@@ -1,9 +1,9 @@
 #ifndef TRANSFER_请求总线测试环境2_H
 #define TRANSFER_请求总线测试环境2_H
 #include "gtest/gtest.h"
-#include "../../src/框架组件/请求拦截/请求接收器.h"
-#include "../../src/框架组件/请求拦截/请求队列池接口.h"
-#include "../../src/框架组件/请求拦截/请求队列池.h"
+#include "../../src/框架组件/本地请求拦截/请求接收器.h"
+#include "../../src/框架组件/本地请求拦截/请求队列池接口.h"
+#include "../../src/框架组件/本地请求拦截/请求队列池.h"
 #include "../../src/框架组件/命名服务/命名服务管理器.h"
 #include "模拟处理器.h"
 #include "请求拦截器模拟1.h"
