@@ -14,6 +14,9 @@
 #include "转账服务接口.h"
 #include "../主适配器/转账DTO.h"
 #include "../从适配器/用户HTTP客户端.h"
+/**
+ * TODO::所有领域事件和仓储操作必须在一个本地事务内
+ */
 class 转账服务: public 转账服务接口{
 private:
     用户服务接口 * 用户服务接口_;
