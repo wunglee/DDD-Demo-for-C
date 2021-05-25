@@ -1,6 +1,6 @@
 #ifndef TRANSFER_资金帐户服务模拟_H
 #define TRANSFER_资金帐户服务模拟_H
-#include "../../../src/资金帐户BC/应用层/资金帐户服务接口.h"
+#include "../../../src/全局配置/服务接口/资金帐户服务接口.h"
 class 资金帐户服务模拟: public 资金帐户服务接口{
 private:
     资金帐户服务模拟(){}

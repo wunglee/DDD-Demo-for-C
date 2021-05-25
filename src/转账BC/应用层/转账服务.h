@@ -4,16 +4,14 @@
 #include <boost/optional.hpp>
 #include <boost/format.hpp>
 #include "../领域层/转账.h"
-#include "../../用户BC/应用层/用户服务.h"
 #include "../../框架组件/异常.h"
 #include "../../框架组件/事件发布订阅/领域事件.h"
 #include "../../框架组件/事件发布订阅/事件发布订阅服务.h"
-#include "../../框架组件/命名服务/命名服务管理器.h"
 #include "转账仓储接口.h"
 #include "转账查询接口.h"
 #include "../../全局配置/服务接口/转账服务接口.h"
+#include "../../全局配置/服务接口/用户服务接口.h"
 #include "../主适配器/转账DTO.h"
-#include "../从适配器/用户HTTP客户端.h"
 /**
  * TODO::所有领域事件和仓储操作必须在一个强一致事务内
  */

@@ -1,6 +1,6 @@
 #ifndef TRANSFER_资金帐户服务接口_H
 #define TRANSFER_资金帐户服务接口_H
-#include "../领域层/资金帐户.h"
+#include "../../资金帐户BC/领域层/资金帐户.h"
 #include <string>
 #include <boost/any.hpp>
 #include <boost/optional.hpp>

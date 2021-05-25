@@ -1,7 +1,7 @@
 #ifndef TRANSFER_转账事件监听器_H
 #define TRANSFER_转账事件监听器_H
 #include "../../框架组件/事件发布订阅/事件监听器.h"
-#include "../应用层/资金帐户服务接口.h"
+#include "../../全局配置/服务接口/资金帐户服务接口.h"
 #include "../../转账BC/主适配器/转账DTO.h"
 //从事件队列中取出事件进行处理
 class 资金事件处理器 : public 事件监听器{
