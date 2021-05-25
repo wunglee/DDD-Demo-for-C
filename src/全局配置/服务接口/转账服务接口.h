@@ -3,7 +3,7 @@
 #include <string>
 #include "boost/optional.hpp"
 #include "../../框架组件/异常.h"
-#include "../领域层/转账.h"
+#include "../../转账BC/领域层/转账.h"
 class 转账服务接口 {
 public:
     virtual ~转账服务接口() {

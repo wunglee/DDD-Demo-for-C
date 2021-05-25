@@ -2,7 +2,7 @@
 #define TRANSFER_主适配器事件测试环境_H
 #include "gtest/gtest.h"
 #include "../../../src/转账BC/主适配器/转账事件处理器.h"
-#include "../../../src/转账BC/应用层/转账服务接口.h"
+#include "../../../src/全局配置/服务接口/转账服务接口.h"
 #include "../../../src/框架组件/命名服务/命名服务管理器.h"
 #include "../../../src/框架组件/事件总线/事件监听器.h"
 #include "转账服务模拟.h"

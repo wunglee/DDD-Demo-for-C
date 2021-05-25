@@ -1,6 +1,6 @@
 #ifndef TRANSFER_转账服务模拟_H
 #define TRANSFER_转账服务模拟_H
-#include "../../../src/转账BC/应用层/转账服务接口.h"
+#include "../../../src/全局配置/服务接口/转账服务接口.h"
 class 转账服务模拟: public 转账服务接口{
 private:
     转账服务模拟(){}

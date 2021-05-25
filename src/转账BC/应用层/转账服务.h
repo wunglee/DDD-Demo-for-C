@@ -11,7 +11,7 @@
 #include "../../框架组件/命名服务/命名服务管理器.h"
 #include "转账仓储接口.h"
 #include "转账查询接口.h"
-#include "转账服务接口.h"
+#include "../../全局配置/服务接口/转账服务接口.h"
 #include "../主适配器/转账DTO.h"
 #include "../从适配器/用户HTTP客户端.h"
 /**
