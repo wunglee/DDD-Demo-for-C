@@ -17,6 +17,11 @@ public:
         }
         return 用户服务模拟_;
     }
+    static void 销毁单例(){
+        if (用户服务模拟_ != nullptr) {
+            delete 用户服务模拟_;
+        }
+    }
     static 用户服务模拟* 获取单例(){
         return 构造单例();
     }

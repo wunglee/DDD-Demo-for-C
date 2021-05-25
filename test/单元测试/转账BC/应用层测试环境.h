@@ -1,6 +1,6 @@
 #ifndef TRANSFER_应用层测试环境_H
 #define TRANSFER_应用层测试环境_H
-#include "用户服务模拟.h"
+#include "../用户BC/用户服务模拟.h"
 #include "../../../src/框架组件/命名服务/命名服务管理器.h"
 #include "../../../src/转账BC/应用层/转账服务.h"
 #include "转账仓储模拟.h"

@@ -14,6 +14,7 @@ public:
         资金帐户仓储::资金帐户仓储_= nullptr;
     }
     static 资金帐户仓储* 构建单例(资金帐户DAO接口 * 资金帐户DAO接口_){
+        assert(资金帐户DAO接口_!= nullptr);
         if (资金帐户仓储::资金帐户仓储_ == nullptr) {
             资金帐户仓储::资金帐户仓储_ = new 资金帐户仓储(资金帐户DAO接口_);
         }

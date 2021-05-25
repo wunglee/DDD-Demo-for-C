@@ -27,7 +27,7 @@ link_directories(/usr/local/lib)
 add_subdirectory(${CMAKE_CURRENT_BINARY_DIR}/googletest-src
         ${CMAKE_CURRENT_BINARY_DIR}/googletest-build
         EXCLUDE_FROM_ALL)
-add_library(staticInit_commandBus src/框架组件/请求拦截/请求总线.cpp)
+add_library(staticInit_request src/框架组件/请求拦截/请求总线.cpp)
 add_library(staticInit_event src/框架组件/事件总线/事件发布订阅服务.cpp)
 add_library(staticInit_sington src/框架组件/命名服务/静态初始化.cpp)
 add_executable(infrastructureTest test/框架测试/基础框架测试.cpp)
@@ -50,26 +50,27 @@ target_link_libraries(infrastructureTest
         gtest_main
         staticInit_event
         staticInit_sington
-        staticInit_commandBus
+        staticInit_request
 )
 target_link_libraries(userUnitTest
         gtest_main
         staticInit_event
         staticInit_sington
+        staticInit_request
         staticInit_user
         staticInit_userUnitTest)
 target_link_libraries(tansferUnitTest
         gtest_main
         staticInit_event
         staticInit_sington
-        staticInit_commandBus
+        staticInit_request
         staticInit_transfer
         staticInit_transferUnitTest)
 target_link_libraries(fundUnitTest
         gtest_main
         staticInit_event
         staticInit_sington
-        staticInit_commandBus
+        staticInit_request
         staticInit_fund
         staticInit_fundUnitTest)
 target_link_libraries(tansferFlowTest
@@ -77,7 +78,7 @@ target_link_libraries(tansferFlowTest
         staticInit_transfer
         staticInit_event
         staticInit_sington
-        staticInit_commandBus
+        staticInit_request
         staticInit_user
         staticInit_fund)
 enable_testing()

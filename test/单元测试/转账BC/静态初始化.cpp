@@ -1,7 +1,7 @@
 #include "转账仓储模拟.h"
 #include "转账查询模拟.h"
 #include "转账服务模拟.h"
-#include "用户服务模拟.h"
+#include "../用户BC/用户服务模拟.h"
 #include "转账DAO模拟.h"
 
 转账服务模拟 * 转账服务模拟::转账请求服务_= nullptr;
