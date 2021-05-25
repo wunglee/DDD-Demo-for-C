@@ -36,26 +36,34 @@ TEST(DAO测试,更新用户PO){
 }
 
 TEST_F(TransferFrontendEnvironment, 通过主适配器添加用户){
-    UserHttpService::获取单例()->添加用户("XX");
+    HttpRequest httpRequest("",std::string("XX"));
+    UserHttpService::获取单例()->添加用户(httpRequest);
     ASSERT_EQ(UserServiceMock::获取单例()->获取用户("XX").has_value(), true);
 }
 TEST_F(TransferFrontendEnvironment, 通过主适配器获取用户){
-    UserHttpService::获取单例()->添加用户("XX");
-    ASSERT_EQ(UserHttpService::获取单例()->获取用户("XX").has_value(), true);
+    HttpRequest httpRequest("",std::string("XX"));
+    UserHttpService::获取单例()->添加用户(httpRequest);
+    boost::any result = UserHttpService::获取单例()->获取用户(httpRequest).body;
+    ASSERT_EQ(result.empty(), false);
+    ASSERT_EQ(boost::any_cast<User>(result).获取账号(), "XX");
 }
 TEST_F(TransferFrontendEnvironment, 通过主适配器冻结用户){
-    UserHttpService::获取单例()->添加用户("XX");
-    UserHttpService::获取单例()->冻结用户("XX");
+    HttpRequest httpRequest("",std::string("XX"));
+    UserHttpService::获取单例()->添加用户(httpRequest);
+    UserHttpService::获取单例()->冻结用户(httpRequest);
     ASSERT_EQ(UserServiceMock::获取单例()->获取用户("XX")->是否冻结(), true);
 }
 TEST_F(TransferFrontendEnvironment, 通过主适配器解冻用户){
-    UserHttpService::获取单例()->添加用户("XX");
-    UserHttpService::获取单例()->冻结用户("XX");
-    UserHttpService::获取单例()->解冻用户("XX");
+    HttpRequest httpRequest("",std::string("XX"));
+    UserHttpService::获取单例()->添加用户(httpRequest);
+    UserHttpService::获取单例()->冻结用户(httpRequest);
+    UserHttpService::获取单例()->解冻用户(httpRequest);
     ASSERT_EQ(UserServiceMock::获取单例()->获取用户("XX")->是否冻结(), false);
 }
 TEST_F(TransferFrontendEnvironment, 通过主适配器获取冻结状态){
-    UserHttpService::获取单例()->添加用户("XX");
-    UserHttpService::获取单例()->冻结用户("XX");
-    ASSERT_EQ(UserHttpService::获取单例()->是否已冻结("XX"), true);
+    HttpRequest httpRequest("",std::string("XX"));
+    UserHttpService::获取单例()->添加用户(httpRequest);
+    UserHttpService::获取单例()->冻结用户(httpRequest);
+    boost::any result = UserHttpService::获取单例()->是否已冻结(httpRequest).body;
+    ASSERT_EQ(boost::any_cast<bool>(result), true);
 }

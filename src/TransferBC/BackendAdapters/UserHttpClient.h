@@ -29,26 +29,32 @@ public:
             delete UserHttpClient::用户HTTP客户端_;
     }
 /**
- * 真实项目是获取服务地址并请求参数的序列化操作
+ * 真实项目是获取服务地址并对请求参数进行序列化操作
  */
     boost::optional<User> 获取用户(std::string 账号){
-        return 用户HTTP服务端_->获取用户(账号);
+        HttpRequest httpRequest("",账号);
+        return boost::any_cast<User>(用户HTTP服务端_->获取用户(httpRequest));
     }
 
     bool 是否已冻结(std::string 账号){
-        return 用户HTTP服务端_->是否已冻结(账号);
+        HttpRequest httpRequest("",账号);
+        HttpResponse httpResponse=用户HTTP服务端_->是否已冻结(httpRequest);
+        return boost::any_cast<bool>(httpResponse.body);
     }
 
     void 添加用户(std::string 账号) {
-        用户HTTP服务端_->添加用户(账号);
+        HttpRequest httpRequest("",账号);
+        用户HTTP服务端_->添加用户(httpRequest);
     }
 
     void 冻结用户(std::string 账号) {
-        用户HTTP服务端_->冻结用户(账号);
+        HttpRequest httpRequest("",账号);
+        用户HTTP服务端_->冻结用户(httpRequest);
     }
 
     void 解冻用户(std::string 账号) {
-        用户HTTP服务端_->解冻用户(账号);
+        HttpRequest httpRequest("",账号);
+        用户HTTP服务端_->解冻用户(httpRequest);
     }
 };
 #endif //DDD_DEMO_FOR_C_USERHTTPCLIENT_H

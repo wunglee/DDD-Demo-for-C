@@ -11,6 +11,8 @@
 #include "../../../src/FrameworkComponents/LocalRequestionFilters/RequireAccepter.h"
 #include "../../../src/FrameworkComponents/NamingService/NamingServiceManager.h"
 #include "UserDTO.h"
+#include "../../FrameworkComponents/NetworkProtocol/Http.h"
+
 /**
  * 这是类其实可以是框架通过用户服务接口的服务描述自动生成的
  * 接收的参数是HTTP请求对象和响应对象，此处只是模拟，内部没有真实实现HTTP协议相关处理
@@ -41,7 +43,7 @@ public:
         if(UserHttpService::用户HTTP服务端_ != nullptr)
             delete UserHttpService::用户HTTP服务端_;
     }
-    boost::optional<User> 获取用户(std::string 账号)  {
+    HttpResponse 获取用户(HttpRequest 请求)  {
         boost::optional<User> 用户_;
         /**
          * TODO:异步回调这个回调函数,并采用NOI返回给客户端
@@ -54,13 +56,14 @@ public:
         Require 获取用户请求_= Require("1",
                                  "UserRequireMapping",
                                  "获取用户",
-                                 UserDTO(账号),
+                                 UserDTO(boost::any_cast<std::string>(请求.body)),
                                  &回调函数);
         请求接收器_->提交请求(获取用户请求_);
-        return 用户_;
+        HttpResponse httpResponse(用户_.value());
+        return httpResponse;
     }
 
-    bool 是否已冻结(std::string 账号){
+    HttpResponse 是否已冻结(HttpRequest 请求){
         bool 是否冻结;
         /**
         * TODO:异步回调这个回调函数
@@ -73,37 +76,41 @@ public:
         Require 是否已冻结请求_= Require("1",
                                   "UserRequireMapping",
                                   "是否已冻结",
-                                  UserDTO(账号),
+                                  UserDTO(boost::any_cast<std::string>(请求.body)),
                                   &回调函数);
         请求接收器_->提交请求(是否已冻结请求_);
-        return 是否冻结;
+        HttpResponse httpResponse(是否冻结);
+        return httpResponse;
     }
 
-    void 添加用户(std::string 账号) {
+    HttpResponse 添加用户(HttpRequest 请求) {
         Require 创建用户请求_= Require("1",
                                  "UserRequireMapping",
                                  "创建用户",
-                                 UserDTO(账号),
+                                 UserDTO(boost::any_cast<std::string>(请求.body)),
                                  nullptr);
         请求接收器_->提交请求(创建用户请求_);
+        return HttpResponse();
     }
 
-    void 冻结用户(std::string 账号) {
+    HttpResponse 冻结用户(HttpRequest 请求) {
         Require 冻结用户请求_= Require("1",
                                  "UserRequireMapping",
                                  "冻结用户",
-                                 UserDTO(账号),
+                                 UserDTO(boost::any_cast<std::string>(请求.body)),
                                  nullptr);
         请求接收器_->提交请求(冻结用户请求_);
+        return HttpResponse();
     }
 
-    void 解冻用户(std::string 账号) {
+    HttpResponse 解冻用户(HttpRequest 请求) {
         Require 解冻用户请求_= Require("1",
                                  "UserRequireMapping",
                                  "解冻用户",
-                                 UserDTO(账号),
+                                 UserDTO(boost::any_cast<std::string>(请求.body)),
                                  nullptr);
         请求接收器_->提交请求(解冻用户请求_);
+        return HttpResponse();
     }
 };
 
