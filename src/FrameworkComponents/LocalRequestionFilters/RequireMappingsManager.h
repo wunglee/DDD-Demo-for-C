@@ -18,20 +18,20 @@ class RequireMappingsManager{
 private:
     RequiresQueuePoolInterface* 请求队列池_= RequiresQueuePool::获取单例();
     std::map<std::string,RequireMapping*> 请求处理器注册表;
-    RequireMappingsManager(const std::list<Filter*> 拦截器链表=std::list<Filter*>()) {
-        拦截器管理器_=new 拦截器管理器(拦截器链表);
+    RequireMappingsManager(const std::list<Filter*> 过滤器链表=std::list<Filter*>()) {
+        过滤器管理器_=new 过滤器管理器(过滤器链表);
     }
     static RequireMappingsManager * 请求处理器管理器_;
-    拦截器管理器 *拦截器管理器_;
+    过滤器管理器 *过滤器管理器_;
 public:
     ~RequireMappingsManager(){
         请求处理器注册表.clear();
-        delete 拦截器管理器_;
+        delete 过滤器管理器_;
         RequireMappingsManager::请求处理器管理器_= nullptr;
     }
-    static RequireMappingsManager* 构建单例(const std::list<Filter*> 拦截器链表=std::list<Filter*>()){
+    static RequireMappingsManager* 构建单例(const std::list<Filter*> 过滤器链表=std::list<Filter*>()){
         if(RequireMappingsManager::请求处理器管理器_ == nullptr){
-            RequireMappingsManager::请求处理器管理器_=new RequireMappingsManager(拦截器链表);
+            RequireMappingsManager::请求处理器管理器_=new RequireMappingsManager(过滤器链表);
         }
         return RequireMappingsManager::请求处理器管理器_;
     }
@@ -47,10 +47,10 @@ public:
         while ((请求_Optional= 请求队列池_->取出请求()).has_value()){
             Require 请求_=请求_Optional.value();
             RequireMapping* 请求处理器_=请求处理器注册表[请求_.获取请求处理器名称()];
-            Response 处理结果_= 拦截器管理器_->拦截处理(*请求处理器_,
+            Response 处理结果_= 过滤器管理器_->拦截处理(*请求处理器_,
                                           请求_.获取方法名(),
                                           请求_.获取参数(),
-                                          请求_.获取拦截器配置());
+                                          请求_.获取过滤器配置());
             if(请求_.获取回调方法()!= nullptr){
                 请求_.获取回调方法()->operator()(处理结果_);
             }

@@ -8,7 +8,7 @@
 #include "../UserServiceFactory.h"
 #include "../../../src/FrameworkComponents/LocalRequestionFilters/Response.h"
 #include "../../../src/FrameworkComponents/LocalRequestionFilters/Require.h"
-#include "../../../src/FrameworkComponents/LocalRequestionFilters/RequireAccepter.h"
+#include "../../../src/FrameworkComponents/LocalRequestionFilters/RequireInterceptor.h"
 #include "../../../src/FrameworkComponents/NamingService/NamingServiceManager.h"
 #include "UserDTO.h"
 #include "../../FrameworkComponents/NetworkProtocol/Http.h"
@@ -20,16 +20,16 @@
  */
 class UserHttpService{
 private:
-    RequireAccepter * 请求接收器_= nullptr;
+    RequireInterceptor * 请求拦截器_= nullptr;
     static UserHttpService *用户HTTP服务端_;
-    UserHttpService(RequireAccepter *请求接收器_): 请求接收器_(请求接收器_) {}
+    UserHttpService(RequireInterceptor *请求拦截器_): 请求拦截器_(请求拦截器_) {}
 public:
     ~UserHttpService(){
         用户HTTP服务端_= nullptr;
     }
-    static UserHttpService *构建单例(RequireAccepter * 请求接收器_) {
+    static UserHttpService *构建单例(RequireInterceptor * 请求拦截器_) {
         if (UserHttpService::用户HTTP服务端_ == nullptr) {
-            UserHttpService::用户HTTP服务端_ = new UserHttpService(请求接收器_);
+            UserHttpService::用户HTTP服务端_ = new UserHttpService(请求拦截器_);
         }
         return UserHttpService::用户HTTP服务端_;
     }
@@ -43,11 +43,11 @@ public:
         if(UserHttpService::用户HTTP服务端_ != nullptr)
             delete UserHttpService::用户HTTP服务端_;
     }
+    /**
+    * TODO:异步回调这个回调函数,并采用NOI返回给客户端
+    */
     HttpResponse 获取用户(HttpRequest &请求)  {
         boost::optional<User> 用户_;
-        /**
-         * TODO:异步回调这个回调函数,并采用NOI返回给客户端
-         */
         std::function<void(Response&)> 回调函数=[&](Response& 处理结果_) mutable{
             if(处理结果_.异常_==nullptr){
                 用户_=boost::any_cast<User>(处理结果_.返回值);
@@ -58,7 +58,7 @@ public:
                                  "获取用户",
                                  UserDTO(boost::any_cast<std::string>(请求.body)),
                                  &回调函数);
-        请求接收器_->提交请求(获取用户请求_);
+        请求拦截器_->提交请求(获取用户请求_);
         HttpResponse httpResponse(用户_.value());
         return httpResponse;
     }
@@ -78,7 +78,7 @@ public:
                                   "是否已冻结",
                                   UserDTO(boost::any_cast<std::string>(请求.body)),
                                   &回调函数);
-        请求接收器_->提交请求(是否已冻结请求_);
+        请求拦截器_->提交请求(是否已冻结请求_);
         HttpResponse httpResponse(是否冻结);
         return httpResponse;
     }
@@ -89,7 +89,7 @@ public:
                                  "创建用户",
                                  UserDTO(boost::any_cast<std::string>(请求.body)),
                                  nullptr);
-        请求接收器_->提交请求(创建用户请求_);
+        请求拦截器_->提交请求(创建用户请求_);
         return HttpResponse();
     }
 
@@ -99,7 +99,7 @@ public:
                                  "冻结用户",
                                  UserDTO(boost::any_cast<std::string>(请求.body)),
                                  nullptr);
-        请求接收器_->提交请求(冻结用户请求_);
+        请求拦截器_->提交请求(冻结用户请求_);
         return HttpResponse();
     }
 
@@ -109,7 +109,7 @@ public:
                                  "解冻用户",
                                  UserDTO(boost::any_cast<std::string>(请求.body)),
                                  nullptr);
-        请求接收器_->提交请求(解冻用户请求_);
+        请求拦截器_->提交请求(解冻用户请求_);
         return HttpResponse();
     }
 };

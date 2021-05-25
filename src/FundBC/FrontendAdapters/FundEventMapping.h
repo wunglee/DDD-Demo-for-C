@@ -31,7 +31,7 @@ public:
             delete FundEventMapping::资金事件处理器_;
         }
     }
-    //TODO:还需要重构，并且不应该直接调用应用服务，应该转发给请求拦截器进一步处理
+    //TODO:还需要重构，并且不应该直接调用应用服务，应该转发给请求过滤器进一步处理
     std::map<std::string,std::function<void(DomainEvent)>> 事件处理映射表;
     void 处理(const DomainEvent 领域事件_){
         boost::any 事件内容;

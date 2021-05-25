@@ -2,7 +2,7 @@
 #define TRANSFER_PROTOBUF请求适配器_H
 #include "../../../src/FrameworkComponents/LocalRequestionFilters/Response.h"
 #include "../../../src/FrameworkComponents/LocalRequestionFilters/Require.h"
-#include "../../../src/FrameworkComponents/LocalRequestionFilters/RequireAccepter.h"
+#include "../../../src/FrameworkComponents/LocalRequestionFilters/RequireInterceptor.h"
 #include "../../../src/FrameworkComponents/NamingService/NamingServiceManager.h"
 #include "TransferDTO.h"
 /**
@@ -12,9 +12,9 @@
  */
 class ProtobufRequireAdaptor {
 private:
-    RequireAccepter * 请求接收器_= nullptr;
+    RequireInterceptor * 请求拦截器_= nullptr;
     static ProtobufRequireAdaptor * PB请求适配器_;
-    ProtobufRequireAdaptor(RequireAccepter *请求接收器_) : 请求接收器_(请求接收器_) {}
+    ProtobufRequireAdaptor(RequireInterceptor *请求拦截器_) : 请求拦截器_(请求拦截器_) {}
     Require 构造请求(std::string 请求参数, std::function<void(Response&)>* 回调函数){
         申请转账DTO 申请转账DTO_("XX","YY",10);
         Require 请求_("1",
@@ -28,9 +28,9 @@ public:
     ~ProtobufRequireAdaptor() {
         ProtobufRequireAdaptor::PB请求适配器_= nullptr;
     }
-    static ProtobufRequireAdaptor* 构建单例(RequireAccepter * 请求接收器_){
+    static ProtobufRequireAdaptor* 构建单例(RequireInterceptor * 请求拦截器_){
         if (PB请求适配器_ == nullptr) {
-            PB请求适配器_ = new ProtobufRequireAdaptor(请求接收器_);
+            PB请求适配器_ = new ProtobufRequireAdaptor(请求拦截器_);
         }
         return PB请求适配器_;
     }
@@ -53,7 +53,7 @@ public:
             }
         };
         Require 请求_=构造请求(请求参数, &回调函数);
-        请求接收器_->提交请求(请求_);
+        请求拦截器_->提交请求(请求_);
         return 单号;
     }
 };

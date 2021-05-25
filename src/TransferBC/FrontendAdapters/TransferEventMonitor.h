@@ -31,7 +31,7 @@ public:
             delete TransferEventMonitor::转账事件处理器_;
         }
     }
-    //TODO:还需要重构，并且不应该直接调用应用服务，应该转发给请求拦截器进一步处理
+    //TODO:还需要重构，并且不应该直接调用应用服务，应该转发给请求过滤器进一步处理
     virtual void 处理(DomainEvent 领域事件_) override{
         std::string 事件名= 领域事件_.获取事件名();
         if(事件名=="扣减已成功") {

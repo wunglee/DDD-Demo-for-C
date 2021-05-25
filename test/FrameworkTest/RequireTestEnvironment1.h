@@ -1,7 +1,7 @@
 #ifndef TRANSFER_请求总线测试环境_H
 #define TRANSFER_请求总线测试环境_H
 #include "gtest/gtest.h"
-#include "../../src/FrameworkComponents/LocalRequestionFilters/RequireAccepter.h"
+#include "../../src/FrameworkComponents/LocalRequestionFilters/RequireInterceptor.h"
 #include "../../src/FrameworkComponents/LocalRequestionFilters/RequiresQueuePoolInterface.h"
 #include "../../src/FrameworkComponents/LocalRequestionFilters/RequiresQueuePool.h"
 #include "../../src/FrameworkComponents/NamingService/NamingServiceManager.h"
@@ -16,14 +16,14 @@ public:
         请求处理器_=new RequireMappingMock();
         RequireMappingsManager::构建单例()->注册请求处理器("RequireMappingMock", 请求处理器_);
         NamingServiceManager::获取单例()->注册服务<RequireMappingsManager *>("RequireMappingsManager", RequireMappingsManager::构建单例());
-        NamingServiceManager::获取单例()->注册服务<RequireAccepter *>("RequireAccepter", RequireAccepter::获取单例());
+        NamingServiceManager::获取单例()->注册服务<RequireInterceptor *>("RequireInterceptor", RequireInterceptor::获取单例());
      }
 
     virtual void TearDown() {
         RequiresQueuePool::销毁单例();
         NamingServiceManager::销毁单例();
         RequireMappingsManager::销毁单例();
-        RequireAccepter::销毁单例();
+        RequireInterceptor::销毁单例();
         delete 请求处理器_;
     }
 };

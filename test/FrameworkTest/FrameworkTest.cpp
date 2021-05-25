@@ -2,7 +2,7 @@
 #include "DomainEventTestEnvironment.h"
 #include "../../src/FundBC/BackendAdapters/FundDAO.h"
 #include "../../src/UserBC/BackendAdapters/UserDAO.h"
-#include "../../src/FrameworkComponents/LocalRequestionFilters/RequireAccepter.h"
+#include "../../src/FrameworkComponents/LocalRequestionFilters/RequireInterceptor.h"
 #include "RequireTestEnvironment1.h"
 #include "RequireTestEnvironment2.h"
 
@@ -34,7 +34,7 @@ void 测试提交请求(){
            boost::any("参数"),
             &回调函数,
             {"拦截1","拦截2"});
-    RequireAccepter::获取单例()->提交请求(请求_);
+    RequireInterceptor::获取单例()->提交请求(请求_);
     ASSERT_EQ(回调成功, true);
 }
 TEST_F(RequireTestEnvironment1, 提交请求){
@@ -42,8 +42,8 @@ TEST_F(RequireTestEnvironment1, 提交请求){
 }
 TEST_F(RequireTestEnvironment2, 拦截请求){
     测试提交请求();
-    ASSERT_EQ(请求拦截器模拟1_->执行前调用, true);
-    ASSERT_EQ(请求拦截器模拟1_->执行后调用, true);
-    ASSERT_EQ(请求拦截器模拟2_->执行前调用, true);
-    ASSERT_EQ(请求拦截器模拟2_->执行后调用, true);
+    ASSERT_EQ(请求过滤器模拟1_->执行前调用, true);
+    ASSERT_EQ(请求过滤器模拟1_->执行后调用, true);
+    ASSERT_EQ(请求过滤器模拟2_->执行前调用, true);
+    ASSERT_EQ(请求过滤器模拟2_->执行后调用, true);
 }

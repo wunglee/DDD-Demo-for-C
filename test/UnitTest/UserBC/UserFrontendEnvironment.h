@@ -9,7 +9,7 @@ class TransferFrontendEnvironment : public ::testing::Test {
 public:
     virtual void SetUp() {
         RequestionConfigure::获取单例()->注册请求处理器("UserRequireMapping", UserRequireMapping::构建单例(UserServiceMock::构造单例()));
-        NamingServiceManager::获取单例()->注册服务<UserHttpService *>("UserHttpService", UserHttpService::构建单例(RequireAccepter::获取单例()));
+        NamingServiceManager::获取单例()->注册服务<UserHttpService *>("UserHttpService", UserHttpService::构建单例(RequireInterceptor::获取单例()));
     }
     virtual void TearDown() {
         RequestionConfigure::销毁单例();

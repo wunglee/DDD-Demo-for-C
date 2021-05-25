@@ -18,7 +18,7 @@ class RequireFlowTestEnvironment : public ::testing::Test {
 public:
     virtual void SetUp() {
         RequestionConfigure::获取单例()->注册请求处理器("UserRequireMapping", UserRequireMapping::构建单例(UserServiceFactory::获取单例()));
-        NamingServiceManager::获取单例()->注册服务<UserHttpService *>("用户HTTP服务", UserHttpService::构建单例(RequireAccepter::获取单例()));
+        NamingServiceManager::获取单例()->注册服务<UserHttpService *>("用户HTTP服务", UserHttpService::构建单例(RequireInterceptor::获取单例()));
         EventsMonitorsConfigure::注册事件处理器();
         初始化资金帐户(UserHttpClient::获取单例());
     }

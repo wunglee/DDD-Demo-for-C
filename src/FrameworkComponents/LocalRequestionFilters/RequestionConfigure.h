@@ -8,21 +8,21 @@
 #include "../LocalRequestionFilters/RequestionConfigure.h"
 #include "../LocalRequestionFilters/RequiresQueuePoolInterface.h"
 #include "../LocalRequestionFilters/RequireMappingsManager.h"
-#include "../LocalRequestionFilters/RequireAccepter.h"
+#include "../LocalRequestionFilters/RequireInterceptor.h"
 #include "RequireMapping.h"
 #include "RequiresQueuePool.h"
 class RequestionConfigure {
     RequestionConfigure(){
         RequiresQueuePool::构建单例();
         RequireMappingsManager::获取单例();
-        RequireAccepter::获取单例();
+        RequireInterceptor::获取单例();
     }
     static RequestionConfigure* 请求处理配置器_;
 public:
     ~RequestionConfigure(){
         RequiresQueuePool::销毁单例();
         RequireMappingsManager::销毁单例();
-        RequireAccepter::销毁单例();
+        RequireInterceptor::销毁单例();
         RequestionConfigure::请求处理配置器_= nullptr;
     }
     static RequestionConfigure* 构建单例(){

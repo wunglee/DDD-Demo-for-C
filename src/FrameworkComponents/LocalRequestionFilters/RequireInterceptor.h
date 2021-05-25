@@ -1,35 +1,35 @@
-#ifndef TRANSFER_请求接收器_H
-#define TRANSFER_请求接收器_H
+#ifndef TRANSFER_请求拦截器_H
+#define TRANSFER_请求拦截器_H
 #include "Require.h"
 #include "RequireMappingsManager.h"
 #include "RequiresQueuePool.h"
 #include "../NamingService/NamingServiceManager.h"
 
-class RequireAccepter{
+class RequireInterceptor{
 private:
     RequiresQueuePoolInterface* 请求队列池_= RequiresQueuePool::获取单例();
     RequireMappingsManager* 请求处理器管理器_= RequireMappingsManager::获取单例();
-    RequireAccepter(){
+    RequireInterceptor(){
     }
     void 幂等处理(std::string 请求ID){
     }
-    static RequireAccepter* 请求接收器_;
+    static RequireInterceptor* 请求拦截器_;
 public:
-    ~RequireAccepter() {
-        RequireAccepter::请求接收器_= nullptr;
+    ~RequireInterceptor() {
+        RequireInterceptor::请求拦截器_= nullptr;
     }
-    static RequireAccepter* 构建单例(){
-        if(RequireAccepter::请求接收器_ == nullptr){
-            RequireAccepter::请求接收器_=new RequireAccepter();
+    static RequireInterceptor* 构建单例(){
+        if(RequireInterceptor::请求拦截器_ == nullptr){
+            RequireInterceptor::请求拦截器_=new RequireInterceptor();
         }
-        return RequireAccepter::请求接收器_;
+        return RequireInterceptor::请求拦截器_;
     }
-    static RequireAccepter* 获取单例(){
+    static RequireInterceptor* 获取单例(){
         return 构建单例();
     }
     static void 销毁单例(){
-        if(RequireAccepter::请求接收器_ != nullptr)
-           delete RequireAccepter::请求接收器_;
+        if(RequireInterceptor::请求拦截器_ != nullptr)
+           delete RequireInterceptor::请求拦截器_;
     }
     void 提交请求(Require& 请求){
         幂等处理(请求.获取请求Id());
@@ -43,4 +43,4 @@ public:
 
 
 
-#endif //TRANSFER_请求接收器_H
+#endif //TRANSFER_请求拦截器_H

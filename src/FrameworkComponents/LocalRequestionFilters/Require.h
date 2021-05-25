@@ -8,7 +8,7 @@ private:
     std::string 请求处理器名称;
     std::string 方法名;
     boost::any 参数;
-    std::list <std::string> 拦截器配置;
+    std::list <std::string> 过滤器配置;
     const std::function<void(Response& 处理结果_)> *回调方法_;
 public:
     Require(const std::string 请求Id,
@@ -16,12 +16,12 @@ public:
             const std::string 方法名,
             const boost::any &参数,
             const std::function<void(Response &)> *回调方法,
-            const std::list<std::string> &拦截器配置={}) :
+            const std::list<std::string> &过滤器配置={}) :
        请求ID(请求Id),
        请求处理器名称(请求处理器名称),
        方法名(方法名),
        参数(参数),
-       拦截器配置(拦截器配置),
+       过滤器配置(过滤器配置),
        回调方法_(回调方法) {}
 
     const std::string 获取请求Id() const {
@@ -40,8 +40,8 @@ public:
         return 参数;
     }
 
-    const std::list<std::string> 获取拦截器配置() const {
-        return 拦截器配置;
+    const std::list<std::string> 获取过滤器配置() const {
+        return 过滤器配置;
     }
 
     const std::function<void(Response &)>* 获取回调方法() const {
