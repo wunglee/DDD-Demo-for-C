@@ -2,7 +2,7 @@
 #define TRANSFER_主适配器请求测试环境_H
 #include "gtest/gtest.h"
 #include "../../../src/UserBC/FrontendAdapters/UserRequireMapping.h"
-#include "../../../src/FrameworkComponents/LocalRequestionFilters/RequestionConfigure.h"
+#include "../../../src/FrameworkComponents/RequestionFilters/RequestionConfigure.h"
 #include "UserServiceMock.h"
 #include "../../../src/UserBC/FrontendAdapters/UserHttpService.h"
 class TransferFrontendEnvironment : public ::testing::Test {

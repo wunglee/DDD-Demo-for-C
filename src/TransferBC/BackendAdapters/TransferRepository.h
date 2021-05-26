@@ -3,7 +3,7 @@
 #include "../Application/TransferRepositoryInterface.h"
 #include "TransferPO.h"
 #include "TransferDAOInterface.h"
-#include "UserHttpClient.h"
+#include "../../GlobalBusinessDependency/ServiceInterfaces/UserHttpClient.h"
 class TransferRepository : public TransferRepositoryInterface{
 private:
     UserServiceInterface * 用户服务接口_;

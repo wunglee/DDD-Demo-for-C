@@ -4,10 +4,10 @@
 
 #ifndef TRANSFER_用户服务工厂_H
 #define TRANSFER_用户服务工厂_H
-#include "Application/UserService.h"
-#include "BackendAdapters/UserRepository.h"
-#include "BackendAdapters/UserQuery.h"
-#include "BackendAdapters/UserDAO.h"
+#include "../src/UserBC/Application/UserService.h"
+#include "../src/UserBC/BackendAdapters/UserRepository.h"
+#include "../src/UserBC/BackendAdapters/UserQuery.h"
+#include "../src/UserBC/BackendAdapters/UserDAO.h"
 
 class UserServiceFactory {
 public:

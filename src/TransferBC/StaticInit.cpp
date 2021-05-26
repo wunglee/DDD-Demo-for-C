@@ -5,7 +5,7 @@
 #include "BackendAdapters/TransferDAO.h"
 #include "FrontendAdapters/ProtobufRequireAdaptor.h"
 #include "FrontendAdapters/TransferRequireMapping.h"
-#include "TransferServiceFactory.h"
+#include "../../product/TransferServiceFactory.h"
 TransferService * TransferService::转账服务_= nullptr;
 TransferQuery * TransferQuery::转账查询_= nullptr;
 TransferEventMonitor * TransferEventMonitor::转账事件处理器_= nullptr;

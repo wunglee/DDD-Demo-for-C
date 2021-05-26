@@ -2,7 +2,7 @@
 #define TRANSFER_主适配器请求测试环境_H
 #include "gtest/gtest.h"
 #include "../../../src/TransferBC/FrontendAdapters/TransferRequireMapping.h"
-#include "../../../src/FrameworkComponents/LocalRequestionFilters/RequestionConfigure.h"
+#include "../../../src/FrameworkComponents/RequestionFilters/RequestionConfigure.h"
 #include "TansferServiceMock.h"
 #include "../../../src/TransferBC/FrontendAdapters/ProtobufRequireAdaptor.h"
 class TransferFrontendEnvironment : public ::testing::Test {

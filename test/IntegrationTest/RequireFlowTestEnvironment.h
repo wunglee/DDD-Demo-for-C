@@ -2,15 +2,15 @@
 #define TRANSFER_转账流程测试环境_H
 #include "../../src/FrameworkComponents/NamingService/NamingServiceManager.h"
 #include "gtest/gtest.h"
-#include "../../src/FundBC/FundServiceFactory.h"
-#include "../../src/UserBC/UserServiceFactory.h"
+#include "../../product/FundServiceFactory.h"
+#include "../../product/UserServiceFactory.h"
 #include "../../src/UserBC/FrontendAdapters/UserHttpService.h"
 #include "../../src/UserBC/FrontendAdapters/UserRequireMapping.h"
-#include "../../src/TransferBC/TransferServiceFactory.h"
+#include "../../product/TransferServiceFactory.h"
 #include "../UnitTest/UserBC/UserServiceMock.h"
 #include "../../src/GlobalBusinessDependency/EventsMonitorsConfigure.h"
-#include "../../src/FrameworkComponents/LocalRequestionFilters/RequestionConfigure.h"
-#include "../../src/TransferBC/BackendAdapters/UserHttpClient.h"
+#include "../../src/FrameworkComponents/RequestionFilters/RequestionConfigure.h"
+#include "../../src/GlobalBusinessDependency/ServiceInterfaces/UserHttpClient.h"
 #include "../CommonTestFuntions.h"
 
 

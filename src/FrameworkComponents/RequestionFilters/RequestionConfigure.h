@@ -5,10 +5,10 @@
 #ifndef DDD_DEMO_FOR_C_REQUESTIONCONFIGURE_H
 #define DDD_DEMO_FOR_C_REQUESTIONCONFIGURE_H
 #include "../NamingService/NamingServiceManager.h"
-#include "../LocalRequestionFilters/RequestionConfigure.h"
-#include "../LocalRequestionFilters/RequiresQueuePoolInterface.h"
-#include "../LocalRequestionFilters/RequireMappingsManager.h"
-#include "../LocalRequestionFilters/RequireInterceptor.h"
+#include "../RequestionFilters/RequestionConfigure.h"
+#include "../RequestionFilters/RequiresQueuePoolInterface.h"
+#include "../RequestionFilters/RequireMappingsManager.h"
+#include "../RequestionFilters/RequireInterceptor.h"
 #include "RequireMapping.h"
 #include "RequiresQueuePool.h"
 class RequestionConfigure {

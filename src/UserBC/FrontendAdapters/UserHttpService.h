@@ -5,10 +5,10 @@
 #ifndef DDD_DEMO_FOR_C_用户服务端_H
 #define DDD_DEMO_FOR_C_用户服务端_H
 #include "../Application/UserService.h"
-#include "../UserServiceFactory.h"
-#include "../../../src/FrameworkComponents/LocalRequestionFilters/Response.h"
-#include "../../../src/FrameworkComponents/LocalRequestionFilters/Require.h"
-#include "../../../src/FrameworkComponents/LocalRequestionFilters/RequireInterceptor.h"
+#include "../../../product/UserServiceFactory.h"
+#include "../../../src/FrameworkComponents/RequestionFilters/Response.h"
+#include "../../../src/FrameworkComponents/RequestionFilters/Require.h"
+#include "../../../src/FrameworkComponents/RequestionFilters/RequireInterceptor.h"
 #include "../../../src/FrameworkComponents/NamingService/NamingServiceManager.h"
 #include "UserDTO.h"
 #include "../../FrameworkComponents/NetworkProtocol/Http.h"

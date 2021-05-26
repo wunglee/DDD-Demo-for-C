@@ -1,8 +1,8 @@
 #ifndef TRANSFER_PROTOBUF请求适配器_H
 #define TRANSFER_PROTOBUF请求适配器_H
-#include "../../../src/FrameworkComponents/LocalRequestionFilters/Response.h"
-#include "../../../src/FrameworkComponents/LocalRequestionFilters/Require.h"
-#include "../../../src/FrameworkComponents/LocalRequestionFilters/RequireInterceptor.h"
+#include "../../../src/FrameworkComponents/RequestionFilters/Response.h"
+#include "../../../src/FrameworkComponents/RequestionFilters/Require.h"
+#include "../../../src/FrameworkComponents/RequestionFilters/RequireInterceptor.h"
 #include "../../../src/FrameworkComponents/NamingService/NamingServiceManager.h"
 #include "TransferDTO.h"
 /**

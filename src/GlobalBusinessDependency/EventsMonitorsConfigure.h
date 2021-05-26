@@ -2,8 +2,8 @@
 #define TRANSFER_事件处理器管理_H
 #include "../TransferBC/FrontendAdapters/TransferEventMonitor.h"
 #include "../FrameworkComponents/NamingService/NamingServiceManager.h"
-#include "../FundBC/FundServiceFactory.h"
-#include "../TransferBC/TransferServiceFactory.h"
+#include "../../product/FundServiceFactory.h"
+#include "../../product/TransferServiceFactory.h"
 
 class EventsMonitorsConfigure {
 public:

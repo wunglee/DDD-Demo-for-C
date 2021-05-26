@@ -2,7 +2,7 @@
 #include "DomainEventTestEnvironment.h"
 #include "../../src/FundBC/BackendAdapters/FundDAO.h"
 #include "../../src/UserBC/BackendAdapters/UserDAO.h"
-#include "../../src/FrameworkComponents/LocalRequestionFilters/RequireInterceptor.h"
+#include "../../src/FrameworkComponents/RequestionFilters/RequireInterceptor.h"
 #include "RequireTestEnvironment1.h"
 #include "RequireTestEnvironment2.h"
 

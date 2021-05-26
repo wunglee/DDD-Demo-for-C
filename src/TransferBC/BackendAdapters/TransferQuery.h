@@ -5,7 +5,7 @@
 #include "TransferDAOInterface.h"
 #include "TransferPO.h"
 #include "../Domain/TransferUser.h"
-#include "UserHttpClient.h"
+#include "../../GlobalBusinessDependency/ServiceInterfaces/UserHttpClient.h"
 class TransferQuery: public TransferQueryInterface{
 private:
     UserServiceInterface * 用户服务接口_;

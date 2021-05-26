@@ -1,9 +1,9 @@
 #ifndef TRANSFER_请求总线测试环境2_H
 #define TRANSFER_请求总线测试环境2_H
 #include "gtest/gtest.h"
-#include "../../src/FrameworkComponents/LocalRequestionFilters/RequireInterceptor.h"
-#include "../../src/FrameworkComponents/LocalRequestionFilters/RequiresQueuePoolInterface.h"
-#include "../../src/FrameworkComponents/LocalRequestionFilters/RequiresQueuePool.h"
+#include "../../src/FrameworkComponents/RequestionFilters/RequireInterceptor.h"
+#include "../../src/FrameworkComponents/RequestionFilters/RequiresQueuePoolInterface.h"
+#include "../../src/FrameworkComponents/RequestionFilters/RequiresQueuePool.h"
 #include "../../src/FrameworkComponents/NamingService/NamingServiceManager.h"
 #include "RequireMappingMock.h"
 #include "RequireFilterMock1.h"

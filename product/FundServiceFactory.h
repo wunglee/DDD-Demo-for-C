@@ -1,10 +1,10 @@
 #ifndef TRANSFER_资金帐户服务工厂_H
 #define TRANSFER_资金帐户服务工厂_H
-#include "Application/FundService.h"
-#include "BackendAdapters/FundRepository.h"
-#include "BackendAdapters/FundQuery.h"
-#include "BackendAdapters/FundDAO.h"
-#include "FrontendAdapters/FundEventMapping.h"
+#include "../src/FundBC/Application/FundService.h"
+#include "../src/FundBC/BackendAdapters/FundRepository.h"
+#include "../src/FundBC/BackendAdapters/FundQuery.h"
+#include "../src/FundBC/BackendAdapters/FundDAO.h"
+#include "../src/FundBC/FrontendAdapters/FundEventMapping.h"
 class FundServiceFactory {
 public:
     static FundServiceInterface *获取单例(){

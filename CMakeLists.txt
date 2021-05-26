@@ -27,7 +27,7 @@ link_directories(/usr/local/lib)
 add_subdirectory(${CMAKE_CURRENT_BINARY_DIR}/googletest-src
         ${CMAKE_CURRENT_BINARY_DIR}/googletest-build
         EXCLUDE_FROM_ALL)
-add_library(staticInit_request src/FrameworkComponents/LocalRequestionFilters/StaticInit.cpp)
+add_library(staticInit_request src/FrameworkComponents/RequestionFilters/StaticInit.cpp)
 add_library(staticInit_event src/FrameworkComponents/DomainEvent/PublishSubscribeService.cpp)
 add_library(staticInit_sington src/FrameworkComponents/NamingService/StaticInit.cpp)
 add_executable(infrastructureTest test/FrameworkTest/FrameworkTest.cpp)

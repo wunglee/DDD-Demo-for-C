@@ -1,10 +1,10 @@
 #ifndef TRANSFER_转帐服务工厂_H
 #define TRANSFER_转帐服务工厂_H
-#include "BackendAdapters/TransferRepository.h"
-#include "BackendAdapters/TransferDAO.h"
-#include "Application/TransferService.h"
-#include "BackendAdapters/TransferQuery.h"
-#include "BackendAdapters/UserHttpClient.h"
+#include "../src/TransferBC/BackendAdapters/TransferRepository.h"
+#include "../src/TransferBC/BackendAdapters/TransferDAO.h"
+#include "../src/TransferBC/Application/TransferService.h"
+#include "../src/TransferBC/BackendAdapters/TransferQuery.h"
+#include "../src/GlobalBusinessDependency/ServiceInterfaces/UserHttpClient.h"
 
 class TransferServiceFactory {
 public:

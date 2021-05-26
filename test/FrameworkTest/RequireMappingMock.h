@@ -1,7 +1,7 @@
 #ifndef TRANSFER_模拟处理器_H
 #define TRANSFER_模拟处理器_H
-#include "../../src/FrameworkComponents/LocalRequestionFilters/RequireMapping.h"
-#include "../../src/FrameworkComponents/LocalRequestionFilters/Response.h"
+#include "../../src/FrameworkComponents/RequestionFilters/RequireMapping.h"
+#include "../../src/FrameworkComponents/RequestionFilters/Response.h"
 #include <boost/any.hpp>
 
 class RequireMappingMock: public RequireMapping{
