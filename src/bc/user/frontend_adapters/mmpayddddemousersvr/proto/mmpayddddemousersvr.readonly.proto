@@ -1,0 +1,86 @@
+import "comm2/tlvpickle/skbuiltintype.proto";
+import "mmcontrib/xwi/stub_msg_validator/base_msg_validator.proto";
+
+package mmpayddddemousersvr;
+
+message UserDTO {
+  optional string account_id = 1;
+
+  optional bool is_frozen = 2;
+}
+
+message AddUserReq {
+  optional string account_id = 1;
+}
+
+message AddUserResp {
+  optional string retmsg = 1;
+}
+
+message FreezeUserReq {
+  optional string account_id = 1;
+}
+
+message FreezeUserResp {
+  optional string retmsg = 1;
+}
+
+message UnFreezeUserReq {
+  optional string account_id = 1;
+}
+
+message UnFreezeUserResp {
+  optional string retmsg = 1;
+}
+
+message IsFrozenReq {
+  optional string account_id = 1;
+}
+
+message IsFrozenResp {
+  optional string retmsg = 1;
+  optional bool is_frozen = 2;
+}
+
+message GetUserReq {
+  optional string account_id = 1;
+}
+
+message GetUserResp {
+  optional string retmsg = 1;
+  optional UserDTO user_dto = 2;
+}
+
+service MMPayDDDDemoUserSvr {
+  option (tlvpickle.Magic) = 28876;
+
+  rpc AddUser(AddUserReq) returns (AddUserResp){
+    option (tlvpickle.CmdID) = 1;
+    option (tlvpickle.OptString) = "j:";
+    option (tlvpickle.Usage) = "-j <json_file>";
+  };
+
+  rpc FreezeUser(FreezeUserReq) returns (FreezeUserResp){
+    option (tlvpickle.CmdID) = 2;
+    option (tlvpickle.OptString) = "j:";
+    option (tlvpickle.Usage) = "-j <json_file>";
+  };
+
+  rpc UnFreezeUser(UnFreezeUserReq) returns (UnFreezeUserResp){
+    option (tlvpickle.CmdID) = 3;
+    option (tlvpickle.OptString) = "j:";
+    option (tlvpickle.Usage) = "-j <json_file>";
+  };
+
+  rpc IsFrozen(IsFrozenReq) returns (IsFrozenResp){
+    option (tlvpickle.CmdID) = 4;
+    option (tlvpickle.OptString) = "j:";
+    option (tlvpickle.Usage) = "-j <json_file>";
+  };
+
+  rpc GetUser(GetUserReq) returns (GetUserResp){
+    option (tlvpickle.CmdID) = 5;
+    option (tlvpickle.OptString) = "j:";
+    option (tlvpickle.Usage) = "-j <json_file>";
+  };
+}

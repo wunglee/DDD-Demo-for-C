@@ -18,7 +18,7 @@ endif()
 set(CMAKE_CXX_STANDARD 14)
 # Prevent overriding the parent project's compiler/linker
 set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
-#添加头文件搜索路径
+# 添加头文件搜索路径
 include_directories(/usr/local/include)
 #添加库文件搜索路径
 link_directories(/usr/local/lib)
@@ -27,24 +27,25 @@ link_directories(/usr/local/lib)
 add_subdirectory(${CMAKE_CURRENT_BINARY_DIR}/googletest-src
         ${CMAKE_CURRENT_BINARY_DIR}/googletest-build
         EXCLUDE_FROM_ALL)
-add_library(staticInit_request src/FrameworkComponents/RequestionFilters/StaticInit.cpp)
-add_library(staticInit_event src/FrameworkComponents/DomainEvent/PublishSubscribeService.cpp)
-add_library(staticInit_sington src/FrameworkComponents/NamingService/StaticInit.cpp)
-add_executable(infrastructureTest test/FrameworkTest/FrameworkTest.cpp)
+add_library(staticInit_request src/framework_components/requestion_filters/static_init.cpp)
+add_library(staticInit_event src/framework_components/domain_event/publish_subscribe_service.cpp
+        src/framework_components/domain_event/memory_publish_subscribe_service.cpp)
+add_library(staticInit_sington src/framework_components/naming_service/static_init.cpp)
+add_executable(infrastructureTest test/unit_test/framework_test/framework_test.cpp)
 
-add_library(staticInit_user src/UserBC/StaticInit.cpp)
-add_library(staticInit_userUnitTest test/UnitTest/UserBC/StaticInit.cpp)
-add_executable(userUnitTest test/UnitTest/UserBC/UserUnitTest.cpp)
+add_library(staticInit_user src/bc/user/static_init.cpp)
+add_library(staticInit_userUnitTest test/unit_test/bc/user/static_init.cpp)
+add_executable(userUnitTest test/unit_test/bc/user/user_unit_test.cpp)
 
-add_library(staticInit_fund src/FundBC/StaticInit.cpp)
-add_library(staticInit_fundUnitTest test/UnitTest/FundBC/StaticInit.cpp)
-add_executable(fundUnitTest test/UnitTest/FundBC/FundUnitTest.cpp)
+add_library(staticInit_fund src/bc/fund/static_init.cpp)
+add_library(staticInit_fundUnitTest test/unit_test/bc/fund/static_init.cpp)
+add_executable(fundUnitTest test/unit_test/bc/fund/fund_unit_test.cpp)
 
-add_library(staticInit_transfer src/TransferBC/StaticInit.cpp)
-add_library(staticInit_transferUnitTest test/UnitTest/TransferBC/StaticInit.cpp)
-add_executable(tansferUnitTest test/UnitTest/TransferBC/TransferUnitTest.cpp)
+add_library(staticInit_transfer src/bc/transfer/static_init.cpp)
+add_library(staticInit_transferUnitTest test/unit_test/bc/transfer/static_init.cpp)
+add_executable(tansferUnitTest test/unit_test/bc/transfer/transfer_unit_test.cpp)
 
-add_executable(tansferFlowTest test/IntegrationTest/RequireFlowTest.cpp)
+add_executable(tansferFlowTest test/integration_test/require_flow_test.cpp)
 
 target_link_libraries(infrastructureTest
         gtest_main
